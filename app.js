@@ -98,11 +98,11 @@ app.post("/emailMe", function (req, res) {
 //d714192473  list id
 
 app.post("/failed", function (req, res) {
-  res.redirect("/html/emailMe");
+  res.redirect(__dirname + "/html/emailMe");
 });
 
 app.post("/success", function (req, res) {
-  res.redirect("/html/emailMe");
+  res.redirect(__dirname + "/html/emailMe");
 });
 
 app.listen(process.env.PORT || 3000, function () {
