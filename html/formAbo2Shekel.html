@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>SoSo</title>
+    </head>
+    <body >
+        <center>
+        <form action="/soso" method="post">
+            <div>
+                <label for="us">Username</label>
+                <input id="us" type="text" name="username" autofocus required minlength="5" maxlength="20">
+                <br><br>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" value="o@o.com" readonly>
+                <br>
+                <hr>
+                <label>Choose your skills</label>
+                <br>
+                <input id="cb" type="checkbox" name="ProblemSolving">
+                <label for="cb">Problem Solving</label>
+                <br>
+    
+                <input id="lo" type="checkbox" name="Logical">
+                <label for="lo">Logical Thinking</label>
+                <br>
+    
+                <input id="Advanced" type="checkbox" name="Advanced">
+                <label for="Advanced">Advanced Search</label>
+                <br>
+                <input id="an" type="checkbox" name="Analysis">
+                <label for="an">Analysis</label>
+                <br>
+    
+                <input id="pl" type="checkbox" name="Planning">
+                <label for="pl">Planning</label>
+            </div>
+            <br>
+            <div>
+                <label>Choose your job</label>
+                <br>
+    
+                <div>
+                    <input id="s1" type="radio" name="radio" value="Scrum Master">
+                    <label for="s1">Scrum Master</label>
+                </div>
+    
+                <div>
+                    <input id="s2" type="radio" name="radio" value="Project Manager">
+                    <label for="s2">Project Manager</label>
+                </div>
+                <div>
+                    <input id="s3" type="radio" name="radio" value="Business Analyst">
+                    <label for="s3">Business Analyst</label>
+                </div>
+                <div>
+                    <input id="s4" type="radio" name="radio" value="Back-End Developer">
+                    <label for="s4">Back-End Developer</label>
+                </div>
+                <div>
+                    <input id="s5" type="radio" name="radio" value="Front-End Developer">
+                    <label for="s5">Front-End Developer</label>
+                </div>
+            </div>
+            <hr>
+            <label>Choose book</label>
+            <select name="book" id="sel">
+                <optgroup label="PHP">
+                    <option value="5.0">v5.0</option>
+                    <option value="7.0">v7.0</option>
+                    <option value="8.0">v8.0</option>
+                </optgroup>
+                <optgroup label="Python">
+                    <option value="2.0">v2.0</option>
+                    <option value="3.0">v3.0</option>
+                    <option value="3.9">v3.9</option>
+                </optgroup>
+            </select>
+            <br>
+            <textarea name="brief" id="" cols="30" rows="10" value="textarea"
+                placeholder="Write Here Why You Want To Learn Programming"></textarea>
+            <hr>
+            <div>
+                <input id="to" type="text" name="token" value="b92f1fc2fce391ad7af633723afd3055" hidden>
+                <input type="reset" value="Empty">
+                <input type="submit" value="send">
+            </div>
+        </form>
+    </center>
+    </body>
+
+</html>
