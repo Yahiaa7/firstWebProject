@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <div id="nav-placeholder" style="position: fixed;">
+
+    </div>
+
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("nav.html");
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $.get("navbar.html", function (data) {
+            $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+
+
+</head>
+
+<body>
+    <center>
+        <div>
+            <div>
+                <br><br>
+                <h1>Welcome</h1>
+                <br>
+                <h2>
+                    <%= day %>
+                </h2>
+                <h3>Add Some Items!</h3>
+            </div>
+            <div>
+                <ul>
+                    <% for (let i=0; i < items.length; i++) {%>
+                        <center>
+                            <li>
+                                <%= items[i] %>
+                            </li>
+                        </center>
+                        <% }%>
+                </ul>
+            </div>
+            <div>
+                <form action="/todoList" method="post">
+                    <input type="text" name="listItem" placeholder="write your note here!">
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </center>
+</body>
+
+</html>

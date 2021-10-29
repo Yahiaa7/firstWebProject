@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <div id="nav-placeholder" style="position: fixed;">
+
+    </div>
+
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("nav.html");
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $.get("navbar.html", function (data) {
+            $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
+</head>
+
+<body>
+    <center>
+        <br><br><br>
+        <div>
+            <form action="/weather" method="post">
+                <label for="pickCity">Choose City: </label>
+                <input id="pickCity" type="text" name="cityName">
+                <button type="submit" id="mButton" onclick="result()">Submit</button>
+            </form>
+        </div>
+        <div>
+            <h3>
+                <%= cityName %>
+                    <%=Temp%>
+            </h3>
+        </div>
+        <!-- <div id="result" style="visibility: visible;">
+            <center>
+                <h1>The Weather in <%= cityName %> is <%=Temp%>°C
+                </h1>
+
+               
+            </center>
+        </div> -->
+        <div id="result" style="visibility: visible;">
+
+        </div>
+    </center>
+    <script>
+        // function result() {
+        //     var a="ss";
+        //     console.log("sjjsjs${a}dd");
+        //     document.getElementById("result").style.visibility = "visible";
+
+
+        // }
+        // $('#mButton').click(function (e) {
+
+        //     e.preventDefault();
+        //     $('#result').load();
+        //     $('#result').css({ 'visibility': 'visible' });
+
+        // });
+    </script>
+</body>
+
+
+</html>

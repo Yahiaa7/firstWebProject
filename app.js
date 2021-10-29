@@ -9,28 +9,79 @@ const __dirname = dirname(__filename);
 */
 const app = express();
 
+var todoListItems = [];
+
+var cityName = "";
+
+var Temp = "";
+
+var soso = "";
+var username = "";
+var ProblemSolving = "off";
+var Logical = "off";
+var Advanced = "off";
+var Analysis = "off";
+var Planning = "off";
+var radio = "";
+var book = "";
+var brief = "";
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("mStatic"));
+app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/html/home.html");
 });
 
 app.get("/soso", function (req, res) {
-  res.sendFile(__dirname + "/html/formAbo2Shekel.html");
+  res.render("formAbo2Shekel", {
+    soso: soso,
+    username: username,
+    ProblemSolving: ProblemSolving,
+    Logical: Logical,
+    Advanced: Advanced,
+    Analysis: Analysis,
+    Planning: Planning,
+    radio: radio,
+    book: book,
+    brief: brief,
+  });
 });
 app.post("/soso", function (req, res) {
-  console.log(req.body);
+  // console.log(req.body);
   var data = req.body;
+  soso = req.body;
+  username = data.username;
+  ProblemSolving = data.ProblemSolving;
+  Logical = data.Logical;
+  Advanced = data.Advanced;
+  Analysis = data.Analysis;
+  Planning = data.Planning;
+  radio = data.radio;
+  book = data.book;
+  brief = data.brief;
 
-  res.send("Registration successful!");
+  res.render("form2SResult",{
+    soso: soso,
+    username: username,
+    ProblemSolving: ProblemSolving,
+    Logical: Logical,
+    Advanced: Advanced,
+    Analysis: Analysis,
+    Planning: Planning,
+    radio: radio,
+    book: book,
+    brief: brief,
+  });
 });
 
 app.get("/weather", function (req, res) {
-  res.sendFile(__dirname + "/html/weather.html");
+  //res.sendFile(__dirname + "/html/weather.html");
+  res.render("weather", { cityName: cityName, Temp: Temp });
 });
 app.post("/weather", function (req, res) {
-  const cityName = req.body.cityName;
+  cityName = req.body.cityName;
 
   const url =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -42,12 +93,23 @@ app.post("/weather", function (req, res) {
     response.on("data", function (data) {
       const mData = JSON.parse(data);
       console.log(mData);
-      res.write(
+      Temp = mData.main.temp;
+
+      res.redirect("weather");
+      /*res.render("weatherResult", {
+        cityName: cityName,
+        Temp: mData.main.temp,
+      });
+      /*res.write(
         "The Temperature in " + cityName + " is " + mData.main.temp + "C"
       );
-      res.send();
+      res.send();*/
     });
   });
+});
+
+app.post("/changeCity", (req, res) => {
+  res.redirect("/weather");
 });
 
 app.get("/emailMe", function (req, res) {
@@ -103,6 +165,28 @@ app.post("/failed", function (req, res) {
 
 app.post("/success", function (req, res) {
   res.redirect("/emailMe");
+});
+
+app.get("/todoList", (req, res) => {
+  var today = new Date();
+
+  var options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  };
+
+  var day = today.toLocaleDateString("en-US", options);
+
+  res.render("todoList", { day: day, items: todoListItems });
+});
+
+app.post("/todoList", (req, res) => {
+  var item = req.body.listItem;
+  console.log(item);
+  todoListItems.push(item);
+
+  res.redirect("/todoList");
 });
 
 app.listen(process.env.PORT || 3000, function () {

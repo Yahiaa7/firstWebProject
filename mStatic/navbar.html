@@ -55,13 +55,14 @@
                     </li>
                     <li id="emailMe" class="nav-item"><a href="/emailMe" class="nav-link px-2 text-white">Email Me!</a>
                     </li>
-                    <li id="fk" href="/fk" class="nav-item"><a class="nav-link px-2 text-white">FAQs</a></li>
-                    <li id="about" class="nav-item"><a href="/about" class="nav-link px-2 text-white">About</a></li>
+                    <li id="todoList" class="nav-item"><a href="/todoList" class="nav-link px-2 text-white">ToDo List</a></li>
+                    <li id="SOSO" class="nav-item"><a href="/soso" class="nav-link px-2 text-white">SOSO</a></li>
                 </ul>
 
                 <script>
-                    switch (document.URL) {
-                        case "localhost:3000/":
+
+                    /*switch (document.URL) {
+                        case "localhost:3000":
                             document.getElementById("home").style.backgroundColor = "#ffca2c";
                             document.getElementById("home").style.borderRadius = "15px";
                             break;
@@ -77,14 +78,14 @@
                             document.getElementById("fk").style.backgroundColor = "#ffca2c";
                             document.getElementById("fk").style.borderRadius = "15px";
                             break;
-                        case "localhost:3000/about":
-                            document.getElementById("about").style.backgroundColor = "#ffca2c";
-                            document.getElementById("about").style.borderRadius = "15px";
+                        case "localhost:3000/SOSO":
+                            document.getElementById("SOSO").style.backgroundColor = "#ffca2c";
+                            document.getElementById("SOSO").style.borderRadius = "15px";
                             break;
                         default:
                             console.log(document.URL);
                             break;
-                    }
+                    }*/
                     $(document).ready(function () {
 
                         $(".nav-items li").click(function () {
