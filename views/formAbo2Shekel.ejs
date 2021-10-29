@@ -6,26 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoSo</title>
+</head>
 
+<body>
     <div id="nav-placeholder" style="position: fixed;">
 
     </div>
 
-    <script>
-        $(function () {
-            $("#nav-placeholder").load("nav.html");
-        });
-    </script>
-
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script>
-        $.get("navbar.html", function (data) {
-            $("#nav-placeholder").replaceWith(data);
-        });
-    </script>
-</head>
-
-<body>
     <center>
         <form action="/soso" method="post">
             <div>
@@ -42,18 +29,18 @@
                 <input id="cb" type="checkbox" name="ProblemSolving">
                 <label for="cb">Problem Solving</label>
                 <br>
-    
+
                 <input id="lo" type="checkbox" name="Logical">
                 <label for="lo">Logical Thinking</label>
                 <br>
-    
+
                 <input id="Advanced" type="checkbox" name="Advanced">
                 <label for="Advanced">Advanced Search</label>
                 <br>
                 <input id="an" type="checkbox" name="Analysis">
                 <label for="an">Analysis</label>
                 <br>
-    
+
                 <input id="pl" type="checkbox" name="Planning">
                 <label for="pl">Planning</label>
             </div>
@@ -61,12 +48,12 @@
             <div>
                 <label>Choose your job</label>
                 <br>
-    
+
                 <div>
                     <input id="s1" type="radio" name="radio" value="Scrum Master">
                     <label for="s1">Scrum Master</label>
                 </div>
-    
+
                 <div>
                     <input id="s2" type="radio" name="radio" value="Project Manager">
                     <label for="s2">Project Manager</label>
@@ -110,6 +97,20 @@
             <br><br><br>
         </form>
     </center>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("nav.html");
+        });
+    </script>
+
+    <script>
+        $.get("navbar.html", function (data) {
+            $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
 </body>
 
 </html>

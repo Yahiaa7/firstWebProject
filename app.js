@@ -9,6 +9,10 @@ const __dirname = dirname(__filename);
 */
 const app = express();
 
+var openWeatherApi = config.openWeatherApi;
+var mailChimpApi = config.mailChimpApi;
+var mailChimpListsID = config.mailChimpListsID;
+
 var todoListItems = [];
 
 var cityName = "";
@@ -62,7 +66,7 @@ app.post("/soso", function (req, res) {
   book = data.book;
   brief = data.brief;
 
-  res.render("form2SResult",{
+  res.render("form2SResult", {
     soso: soso,
     username: username,
     ProblemSolving: ProblemSolving,
@@ -86,7 +90,9 @@ app.post("/weather", function (req, res) {
   const url =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     cityName +
-    "&units=metric&appid=fbed14955f546626337dad1c76879f9c";
+    "&units=metric&appid=" +
+    openWeatherApi;
+ 
 
   https.get(url, function (response) {
     console.log(response.statusMessage);
@@ -137,10 +143,11 @@ app.post("/emailMe", function (req, res) {
   };
 
   const jData = JSON.stringify(data);
-  const mUrl = "https://us5.api.mailchimp.com/3.0/lists/d714192473";
+  const mUrl = "https://us5.api.mailchimp.com/3.0/lists/"+mailChimpListsID;
   const options = {
     method: "POST",
-    auth: "Fancy:1e334ab09d170affd156113e33231315-us5",
+    auth: "Fancy:"+mailChimpApi,
+    //sssssssssssssssssssssssssssssssssssssssss
   };
 
   const request = https.request(mUrl, options, function (response) {

@@ -7,25 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
 
-    <div id="nav-placeholder" style="position: fixed;">
-
-    </div>
-
-    <script>
-        $(function () {
-            $("#nav-placeholder").load("nav.html");
-        });
-    </script>
-
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script>
-        $.get("navbar.html", function (data) {
-            $("#nav-placeholder").replaceWith(data);
-        });
-    </script>
 </head>
 
 <body>
+    <div id="nav-placeholder" style="position: fixed;">
+
+    </div>
     <center>
         <br><br><br>
         <div>
@@ -70,6 +57,18 @@
         // });
     </script>
 </body>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
+<script>
+    $(function () {
+        $("#nav-placeholder").load("nav.html");
+    });
+</script>
+
+<script>
+    $.get("navbar.html", function (data) {
+        $("#nav-placeholder").replaceWith(data);
+    });
+</script>
 
 </html>

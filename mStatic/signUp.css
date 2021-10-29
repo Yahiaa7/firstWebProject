@@ -1,5 +1,5 @@
 html,
-body {
+.text-center {
   height: 100%;
 }
 header {
@@ -10,7 +10,7 @@ header {
   height: 88px;
 }
 
-body {
+.text-center {
   margin-top: 100px;
   align-items: center;
   padding-bottom: 40px;
@@ -37,8 +37,6 @@ body {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-
-
 
 .middle {
   border-radius: 0;
