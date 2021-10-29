@@ -163,8 +163,6 @@ app.post("/emailMe", function (req, res) {
   request.end();
 });
 
-//1e334ab09d170affd156113e33231315-us5  api key
-//d714192473  list id
 
 app.post("/failed", function (req, res) {
   res.redirect("/emailMe");
